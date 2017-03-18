@@ -1,0 +1,22 @@
+{
+  "name": "rollup-plugin-posthtml",
+  "version": "1.0.0",
+  "description": "Seamless integration between Rollup and PostHTML.",
+  "main": "dist/rollup-plugin-posthtml.cjs.js",
+  "module": "dist/rollup-plugin-posthtml.es.js",
+  "scripts": {
+    "test": "mocha",
+    "build": "rollup -c"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "MIT",
+  "dependencies": {
+    "rollup-pluginutils": "^2.0.1"
+  },
+  "devDependencies": {
+    "mocha": "^3.2.0",
+    "rollup": "^0.41.6",
+    "rollup-plugin-buble": "^0.15.0"
+  }
+}
