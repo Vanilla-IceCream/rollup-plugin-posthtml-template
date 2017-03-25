@@ -1,6 +1,6 @@
 import buble from 'rollup-plugin-buble';
 
-import pkg from './package.json';
+const pkg = require('./package.json');
 
 export default {
   entry: './src/index.js',
