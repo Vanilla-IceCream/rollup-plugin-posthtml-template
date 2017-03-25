@@ -20,6 +20,8 @@
     "chai": "^3.5.0",
     "mocha": "^3.2.0",
     "posthtml": "^0.9.2",
+    "posthtml-include": "^1.1.0",
+    "posthtml-sugarml": "^1.0.0-alpha3",
     "rollup": "^0.41.6",
     "rollup-plugin-buble": "^0.15.0"
   }
