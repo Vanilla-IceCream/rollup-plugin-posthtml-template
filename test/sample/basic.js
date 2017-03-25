@@ -1,3 +1,3 @@
-import world from './world.html';
+import foo from './foo.html';
 
-world;
+foo;
