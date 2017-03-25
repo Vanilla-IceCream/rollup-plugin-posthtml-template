@@ -6,8 +6,8 @@ import posthtml from '../';
 describe('rollup-plugin-posthtml', () => {
   it('should import html from file as string', () => {
     return rollup({
-        entry: 'sample/basic.js'
-        plugins: [posthtml()
+        entry: 'sample/basic.js',
+        plugins: [posthtml()]
       })
       .then(result => {
         const { code } = result.generate({ format: 'iife' });

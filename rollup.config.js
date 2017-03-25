@@ -1,14 +1,14 @@
 import buble from 'rollup-plugin-buble';
 
-import { main, module, dependencies } from './package.json';
+import pkg from './package.json';
 
 export default {
   entry: './src/index.js',
   targets: [
-    { dest: main, format: 'cjs' },
-    { dest: module, format: 'es' }
+    { dest: pkg.main, format: 'cjs' },
+    { dest: pkg.module, format: 'es' }
   ],
   plugins: [buble()],
-  external: Object.keys(dependencies),
+  external: Object.keys(pkg.dependencies),
   sourceMap: true
 };
