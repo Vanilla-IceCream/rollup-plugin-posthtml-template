@@ -8,15 +8,9 @@ export default function(options = {}) {
     transform(code, id) {
       if (!filter(id)) return;
 
-      const posthtmlopts = {
-        sync: options.sync || false,
-        parser: options.parser,
-        render: options.render
-      };
-
       return posthtml(options.plugins || [])
-        .process(code, posthtmlopts)
-        .then((result) => ({
+        .process(code, { parser: options.parser })
+        .then(result => ({
           code: `export default ${JSON.stringify(result.html)};`,
           map: JSON.parse(result.map)
         }));

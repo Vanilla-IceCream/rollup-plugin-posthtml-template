@@ -13,6 +13,7 @@ $
 ```js
 // rollup.config.js
 import posthtml from 'rollup-plugin-posthtml';
+import sugarml from 'posthtml-sugarml';
 import include from 'posthtml-include';
 
 export default {
@@ -21,6 +22,7 @@ export default {
   format: 'iife',
   plugins: [
     posthtml({
+      // parser: sugarml(),  // .sml
       plugins: [include()]
     })
   ]
@@ -49,11 +51,3 @@ document.querySelector('#ex').innerHTML = hello;
     <p>World</p>
 */
 ```
-
-## Options
-
-`sync`
-
-`parser`
-
-`render`

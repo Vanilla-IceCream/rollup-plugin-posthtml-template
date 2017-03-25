@@ -5,7 +5,7 @@
   "main": "dist/rollup-plugin-posthtml.cjs.js",
   "module": "dist/rollup-plugin-posthtml.es.js",
   "scripts": {
-    "test": "mocha",
+    "test": "mocha --compilers js:babel-register",
     "build": "rollup -c"
   },
   "keywords": [],
@@ -15,6 +15,7 @@
     "rollup-pluginutils": "^2.0.1"
   },
   "devDependencies": {
+    "chai": "^3.5.0",
     "mocha": "^3.2.0",
     "rollup": "^0.41.6",
     "rollup-plugin-buble": "^0.15.0"
