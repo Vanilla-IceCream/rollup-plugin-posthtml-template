@@ -5,15 +5,20 @@ export default function(options = {}) {
   const filter = createFilter(options.include, options.exclude);
 
   return {
+    name: 'posthtml',
     transform(code, id) {
       if (!filter(id)) return;
 
       return posthtml(options.plugins || [])
         .process(code, { parser: options.parser })
-        .then(result => ({
-          code: `export default ${JSON.stringify(result.html)};`,
-          map: JSON.parse(result.map)
-        }));
+        .then(result => {
+          let code, map;
+
+          code = `export default ${JSON.stringify(result.html)};`;
+          map = result.map;
+
+          return { code, map };
+        });
     }
   };
 }

@@ -17,9 +17,10 @@ import sugarml from 'posthtml-sugarml';
 import include from 'posthtml-include';
 
 export default {
-  entry: './src/app.js',
-  dest: './dist/app.js',
+  entry: join(__dirname, 'main.js'),
+  dest: join(__dirname, 'bundle.js'),
   format: 'iife',
+  moduleName: 'posthtml',
   plugins: [
     posthtml({
       // parser: sugarml(),  // .sml

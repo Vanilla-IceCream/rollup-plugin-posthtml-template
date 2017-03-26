@@ -11,15 +11,20 @@ var index = function(options) {
   var filter = rollupPluginutils.createFilter(options.include, options.exclude);
 
   return {
+    name: 'posthtml',
     transform: function transform(code, id) {
       if (!filter(id)) { return; }
 
       return posthtml(options.plugins || [])
         .process(code, { parser: options.parser })
-        .then(function (result) { return ({
-          code: ("export default " + (JSON.stringify(result.html)) + ";"),
-          map: JSON.parse(result.map)
-        }); });
+        .then(function (result) {
+          var code, map;
+
+          code = "export default " + (JSON.stringify(result.html)) + ";";
+          map = result.map;
+
+          return { code: code, map: map };
+        });
     }
   };
 };
