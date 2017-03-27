@@ -5,10 +5,86 @@ Seamless integration between Rollup and PostHTML.
 ## Install
 
 ```bash
-$
+$ npm i rollup-plugin-posthtml -D
 ```
 
 ## Usage
+
+```js
+// rollup.config.js
+import { join } from 'path';
+import posthtml from 'rollup-plugin-posthtml';
+
+export default {
+  entry: join(__dirname, 'main.js'),
+  dest: join(__dirname, 'bundle.js'),
+  format: 'iife',
+  moduleName: 'posthtml',
+  plugins: [
+    posthtml()
+  ]
+};
+```
+
+```html
+<!-- hello.html -->
+<p>Hello</p>
+<p>World</p>
+```
+
+```js
+// main.js
+import hello from './hello.html';
+
+document.querySelector('#ex').innerHTML = hello;
+/*
+  Output:
+    <p>Hello</p>
+    <p>World</p>
+*/
+```
+
+### parser
+
+```js
+// rollup.config.js
+import { join } from 'path';
+import posthtml from 'rollup-plugin-posthtml';
+import sugarml from 'posthtml-sugarml';
+
+export default {
+  entry: join(__dirname, 'main.js'),
+  dest: join(__dirname, 'bundle.js'),
+  format: 'iife',
+  moduleName: 'posthtml',
+  plugins: [
+    posthtml({
+      parser: sugarml()
+    })
+  ]
+};
+```
+
+```sml
+// hello.sml
+p Hello
+p
+  | World
+```
+
+```js
+// main.js
+import hello from './hello.sml';
+
+document.querySelector('#ex').innerHTML = hello;
+/*
+  Output:
+    <p>Hello</p>
+    <p>World</p>
+*/
+```
+
+### plugins
 
 ```js
 // rollup.config.js
@@ -52,43 +128,6 @@ document.querySelector('#ex').innerHTML = hello;
 */
 ```
 
-### parser
-
-```js
-// rollup.config.js
-import { join } from 'path';
-import posthtml from 'rollup-plugin-posthtml';
-import sugarml from 'posthtml-sugarml';
-
-export default {
-  entry: join(__dirname, 'main.js'),
-  dest: join(__dirname, 'bundle.js'),
-  format: 'iife',
-  moduleName: 'posthtml',
-  plugins: [
-    posthtml({
-      parser: sugarml()
-    })
-  ]
-};
-```
-
-```sml
-// hello.sml
-p Hello
-```
-
-```js
-// main.js
-import hello from './hello.sml';
-
-document.querySelector('#ex').innerHTML = hello;
-/*
-  Output:
-    <p>Hello</p>
-*/
-```
-
 ### template
 
 ```js
@@ -111,7 +150,8 @@ export default {
 
 ```html
 <!-- hello.html -->
-<p>Hello ${text}</p>
+<p>Hello</p>
+<p>${text}</p>
 ```
 
 ```js
@@ -121,6 +161,7 @@ import hello from './hello.html';
 document.querySelector('#ex').innerHTML = hello({ text: 'World' });
 /*
   Output:
-    <p>Hello World</p>
+    <p>Hello</p>
+    <p>World</p>
 */
 ```
