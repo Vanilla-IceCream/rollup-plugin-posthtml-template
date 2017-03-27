@@ -47,7 +47,7 @@ describe('rollup-plugin-posthtml', () => {
 
   it('should be able to use posthtml plugin', () => {
     return rollup({
-        entry: 'sample/plugin.js',
+        entry: 'sample/plugins.js',
         plugins: [
           posthtml({
             plugins: [include()]
