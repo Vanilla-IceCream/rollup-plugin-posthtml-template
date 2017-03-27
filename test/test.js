@@ -30,7 +30,7 @@ describe('rollup-plugin-posthtml', () => {
     });
   });
 
-  it('should be able to use posthtml parser', () => {
+  it('should be able to use parser', () => {
     return rollup({
         entry: 'sample/parser.js',
         plugins: [
@@ -45,12 +45,27 @@ describe('rollup-plugin-posthtml', () => {
     });
   });
 
-  it('should be able to use posthtml plugin', () => {
+  it('should be able to use plugins', () => {
     return rollup({
         entry: 'sample/plugins.js',
         plugins: [
           posthtml({
             plugins: [include()]
+          })
+        ]
+      })
+      .then(result => {
+        const { code, map } = result.generate({ format: 'iife' });
+        expect(code).to.be.ok;
+    });
+  });
+
+  it('should be able to use template', () => {
+    return rollup({
+        entry: 'sample/template.js',
+        plugins: [
+          posthtml({
+            template: true
           })
         ]
       })
