@@ -9,7 +9,7 @@ import include from 'posthtml-include';
 describe('rollup-plugin-posthtml', () => {
   it('should import html from file as string', () => {
     return rollup({
-        entry: 'sample/basic.js',
+        entry: 'samples/basic/basic.js',
         plugins: [posthtml()]
       })
       .then(result => {
@@ -20,7 +20,7 @@ describe('rollup-plugin-posthtml', () => {
 
   it('should output empty sourcemap', () => {
     return rollup({
-        entry: 'sample/basic.js',
+        entry: 'samples/basic/basic.js',
         plugins: [posthtml()]
       })
       .then(result => {
@@ -30,9 +30,9 @@ describe('rollup-plugin-posthtml', () => {
     });
   });
 
-  it('should be able to use parser', () => {
+  it('should be able to use the parser option', () => {
     return rollup({
-        entry: 'sample/parser.js',
+        entry: 'samples/parser/parser.js',
         plugins: [
           posthtml({
             parser: sugarml()
@@ -45,9 +45,9 @@ describe('rollup-plugin-posthtml', () => {
     });
   });
 
-  it('should be able to use plugins', () => {
+  it('should be able to use the plugins option', () => {
     return rollup({
-        entry: 'sample/plugins.js',
+        entry: 'samples/plugins/plugins.js',
         plugins: [
           posthtml({
             plugins: [include()]
@@ -60,9 +60,9 @@ describe('rollup-plugin-posthtml', () => {
     });
   });
 
-  it('should be able to use template', () => {
+  it('should be able to use the template option', () => {
     return rollup({
-        entry: 'sample/template.js',
+        entry: 'samples/template/template.js',
         plugins: [
           posthtml({
             template: true
