@@ -10,7 +10,10 @@ export default function(options = {}) {
       if (!filter(id)) return;
 
       return posthtml(options.plugins || [])
-        .process(code, { parser: options.parser })
+        .process(code, {
+          parser: options.parser,
+          template: options.template || false
+        })
         .then(result => {
           let code, map;
 
