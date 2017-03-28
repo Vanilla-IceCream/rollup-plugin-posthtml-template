@@ -1,3 +1,3 @@
 import bar from './bar.html';
 
-bar;
+export default bar;

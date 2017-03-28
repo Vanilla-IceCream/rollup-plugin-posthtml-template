@@ -1,3 +1,5 @@
 import foo from './foo.html';
 
-foo({ text: 'Foo'});
+const _foo = foo({ text: 'Foo'});
+
+export default _foo;

@@ -18,18 +18,6 @@ describe('rollup-plugin-posthtml', () => {
     });
   });
 
-  it('should output empty sourcemap', () => {
-    return rollup({
-        entry: 'samples/basic/basic.js',
-        plugins: [posthtml()]
-      })
-      .then(result => {
-        const { code, map } = result.generate({ sourceMap: true });
-        expect(code).to.be.ok;
-        expect(map).to.be.ok;
-    });
-  });
-
   it('should be able to use the parser option', () => {
     return rollup({
         entry: 'samples/parser/parser.js',
@@ -40,7 +28,7 @@ describe('rollup-plugin-posthtml', () => {
         ]
       })
       .then(result => {
-        const { code, map } = result.generate({ format: 'iife' });
+        const { code } = result.generate({ format: 'iife' });
         expect(code).to.be.ok;
     });
   });
@@ -55,7 +43,7 @@ describe('rollup-plugin-posthtml', () => {
         ]
       })
       .then(result => {
-        const { code, map } = result.generate({ format: 'iife' });
+        const { code } = result.generate({ format: 'iife' });
         expect(code).to.be.ok;
     });
   });
@@ -70,7 +58,7 @@ describe('rollup-plugin-posthtml', () => {
         ]
       })
       .then(result => {
-        const { code, map } = result.generate({ format: 'iife' });
+        const { code } = result.generate({ format: 'iife' });
         expect(code).to.be.ok;
     });
   });
