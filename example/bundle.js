@@ -1,8 +1,8 @@
-var posthtml = (function () {
+(function () {
 'use strict';
 
-var main = "import foo from './foo.html';\r\n\r\ndocument.querySelector('#example').innerHTML = foo;\r\n";
+var foo = "<p>Foo</p>\r\n<p>Bar</p>\r\n\r\n";
 
-return main;
+document.querySelector('#example').innerHTML = foo;
 
 }());

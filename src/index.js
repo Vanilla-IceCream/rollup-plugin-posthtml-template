@@ -2,6 +2,8 @@ import { createFilter } from 'rollup-pluginutils';
 import posthtml from 'posthtml';
 
 export default function(options = {}) {
+  if (!options.include) options.include = '**/*.html';
+
   const filter = createFilter(options.include, options.exclude);
 
   return {
@@ -10,17 +12,13 @@ export default function(options = {}) {
       if (!filter(id)) return;
 
       return posthtml(options.plugins || [])
-        .process(code, {
-          parser: options.parser,
-          template: options.template || false
-        })
+        .process(code, { parser: options.parser })
         .then(result => {
-          let code, map;
+          const html = options.template
+            ? `export default (_) => ${result.html}`
+            : `export default ${JSON.stringify(result.html)}`;
 
-          code = `export default ${JSON.stringify(result.html)};`;
-          map = result.map;
-
-          return { code, map };
+          return html;
         });
     }
   };

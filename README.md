@@ -19,7 +19,6 @@ export default {
   entry: join(__dirname, 'main.js'),
   dest: join(__dirname, 'bundle.js'),
   format: 'iife',
-  moduleName: 'posthtml',
   plugins: [
     posthtml()
   ]
@@ -56,7 +55,6 @@ export default {
   entry: join(__dirname, 'main.js'),
   dest: join(__dirname, 'bundle.js'),
   format: 'iife',
-  moduleName: 'posthtml',
   plugins: [
     posthtml({
       plugins: [include()]
@@ -100,7 +98,6 @@ export default {
   entry: join(__dirname, 'main.js'),
   dest: join(__dirname, 'bundle.js'),
   format: 'iife',
-  moduleName: 'posthtml',
   plugins: [
     posthtml({
       parser: sugarml()
@@ -139,7 +136,6 @@ export default {
   entry: join(__dirname, 'main.js'),
   dest: join(__dirname, 'bundle.js'),
   format: 'iife',
-  moduleName: 'posthtml',
   plugins: [
     posthtml({
       template: true

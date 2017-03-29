@@ -8,6 +8,8 @@ var posthtml = _interopDefault(require('posthtml'));
 var index = function(options) {
   if ( options === void 0 ) options = {};
 
+  if (!options.include) { options.include = '**/*.html'; }
+
   var filter = rollupPluginutils.createFilter(options.include, options.exclude);
 
   return {
@@ -18,12 +20,11 @@ var index = function(options) {
       return posthtml(options.plugins || [])
         .process(code, { parser: options.parser })
         .then(function (result) {
-          var code, map;
+          var html = options.template
+            ? ("export default (_) => " + (result.html))
+            : ("export default " + (JSON.stringify(result.html)));
 
-          code = "export default " + (JSON.stringify(result.html)) + ";";
-          map = result.map;
-
-          return { code: code, map: map };
+          return html;
         });
     }
   };
