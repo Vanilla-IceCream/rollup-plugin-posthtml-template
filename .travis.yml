@@ -1,0 +1,17 @@
+os: linux
+dist: trusty
+sudo: required
+
+language: node_js
+node_js: stable
+cache: yarn
+
+branches:
+  only: master
+
+script: npm test
+
+notifications:
+  email:
+    on_success: change
+    on_failure: change
