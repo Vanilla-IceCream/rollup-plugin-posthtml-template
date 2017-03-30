@@ -14,11 +14,10 @@ export default function(options = {}) {
       return posthtml(options.plugins || [])
         .process(code, { parser: options.parser })
         .then(result => {
-          const html = options.template
-            ? `export default (_) => ${result.html}`
-            : `export default ${JSON.stringify(result.html)}`;
-
-          return html;
+          return {
+            code: options.template ? `export default (_) => \`${result.html}\`` : `export default ${JSON.stringify(result.html)}`,
+            map: { mappings: '' }
+          };
         });
     }
   };

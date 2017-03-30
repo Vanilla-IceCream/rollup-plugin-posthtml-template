@@ -1,3 +1,3 @@
 import foo from './foo.html';
 
-document.querySelector('#example').innerHTML = foo;
+document.querySelector('#example').innerHTML = foo({ luv: 'Love' });

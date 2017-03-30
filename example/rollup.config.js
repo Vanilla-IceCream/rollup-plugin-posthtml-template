@@ -10,7 +10,8 @@ export default {
   format: 'iife',
   plugins: [
     posthtml({
-      plugins: [include()]
+      plugins: [include()],
+      template: true
     })
   ]
 };

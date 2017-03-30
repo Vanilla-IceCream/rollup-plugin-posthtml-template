@@ -16,11 +16,10 @@ var index = function(options) {
       return posthtml(options.plugins || [])
         .process(code, { parser: options.parser })
         .then(function (result) {
-          var html = options.template
-            ? ("export default (_) => " + (result.html))
-            : ("export default " + (JSON.stringify(result.html)));
-
-          return html;
+          return {
+            code: options.template ? ("export default (_) => `" + (result.html) + "`") : ("export default " + (JSON.stringify(result.html))),
+            map: { mappings: '' }
+          };
         });
     }
   };

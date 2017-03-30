@@ -1,8 +1,12 @@
 (function () {
 'use strict';
 
-var foo = "<p>Foo</p>\r\n<p>Bar</p>\r\n\r\n";
+var foo = (_) => `<p>Foo</p>
+<p>Bar</p>
 
-document.querySelector('#example').innerHTML = foo;
+<p>${ _.luv }</p>
+`;
+
+document.querySelector('#example').innerHTML = foo({ luv: 'Love' });
 
 }());

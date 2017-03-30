@@ -86,8 +86,6 @@ document.querySelector('#ex').innerHTML = hello;
 */
 ```
 
-<!--
-
 ### parser
 
 ```js
@@ -148,7 +146,7 @@ export default {
 
 ```html
 <!-- hello.html -->
-<!--<p>Hello</p>
+<p>Hello</p>
 <p>${text}</p>
 ```
 
@@ -163,5 +161,3 @@ document.querySelector('#ex').innerHTML = hello({ text: 'World' });
     <p>World</p>
 */
 ```
-
--->
