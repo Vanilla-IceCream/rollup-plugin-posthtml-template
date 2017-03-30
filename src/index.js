@@ -2,7 +2,7 @@ import { createFilter } from 'rollup-pluginutils';
 import posthtml from 'posthtml';
 
 export default function(options = {}) {
-  if (!options.include) options.include = '**/*.html';
+  if (!options.include) options.include = '**/*.{html,sml}';
 
   const filter = createFilter(options.include, options.exclude);
 
