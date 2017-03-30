@@ -1,4 +1,4 @@
-# rollup-plugin-posthtml
+# rollup-plugin-posthtml [![Build Status](https://travis-ci.org/Vanilla-IceCream/rollup-plugin-posthtml.svg?branch=master)](https://travis-ci.org/Vanilla-IceCream/rollup-plugin-posthtml)
 
 Seamless integration between Rollup and PostHTML.
 
