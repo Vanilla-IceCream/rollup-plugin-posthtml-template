@@ -35,12 +35,12 @@ describe('rollup-plugin-posthtml', () => {
     });
   });
 
-  it('should be able to use the parser option', () => {
+  it('should be able to use the template option', () => {
     return rollup({
-        entry: 'samples/parser/parser.js',
+        entry: 'samples/template/template.js',
         plugins: [
           posthtml({
-            parser: sugarml()
+            template: true
           })
         ]
       })
@@ -50,12 +50,12 @@ describe('rollup-plugin-posthtml', () => {
     });
   });
 
-  it('should be able to use the template option', () => {
+  it('should be able to use the parser option', () => {
     return rollup({
-        entry: 'samples/template/template.js',
+        entry: 'samples/parser/parser.js',
         plugins: [
           posthtml({
-            template: true
+            parser: sugarml()
           })
         ]
       })

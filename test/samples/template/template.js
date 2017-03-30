@@ -1,3 +1,3 @@
 import foo from './foo.html';
 
-export default foo({ text: 'Foo'});
+export default foo({ text: 'Foo' });

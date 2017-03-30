@@ -2,6 +2,7 @@ import { join } from 'path';
 
 const posthtml = require('../');
 
+// import sugarml from 'posthtml-sugarml';
 import include from 'posthtml-include';
 
 export default {
@@ -10,6 +11,7 @@ export default {
   format: 'iife',
   plugins: [
     posthtml({
+      // parser: sugarml(),
       plugins: [include()],
       template: true
     })

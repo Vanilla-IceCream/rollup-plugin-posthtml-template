@@ -86,6 +86,44 @@ document.querySelector('#ex').innerHTML = hello;
 */
 ```
 
+### template
+
+```js
+// rollup.config.js
+import { join } from 'path';
+import posthtml from 'rollup-plugin-posthtml';
+
+export default {
+  entry: join(__dirname, 'main.js'),
+  dest: join(__dirname, 'bundle.js'),
+  format: 'iife',
+  plugins: [
+    posthtml({
+      template: true
+    })
+  ]
+};
+```
+
+```html
+<!-- hello.html -->
+<p>Hello</p>
+<p>${ _.text }</p>
+```
+
+```js
+// main.js
+import hello from './hello.html';
+
+document.querySelector('#ex').innerHTML = hello({ text: 'World' });
+/*
+  Output:
+    <p>Hello</p>
+    <p>World</p>
+*/
+```
+
+
 ### parser
 
 ```js
@@ -118,43 +156,6 @@ p
 import hello from './hello.sml';
 
 document.querySelector('#ex').innerHTML = hello;
-/*
-  Output:
-    <p>Hello</p>
-    <p>World</p>
-*/
-```
-
-### template
-
-```js
-// rollup.config.js
-import { join } from 'path';
-import posthtml from 'rollup-plugin-posthtml';
-
-export default {
-  entry: join(__dirname, 'main.js'),
-  dest: join(__dirname, 'bundle.js'),
-  format: 'iife',
-  plugins: [
-    posthtml({
-      template: true
-    })
-  ]
-};
-```
-
-```html
-<!-- hello.html -->
-<p>Hello</p>
-<p>${text}</p>
-```
-
-```js
-// main.js
-import hello from './hello.html';
-
-document.querySelector('#ex').innerHTML = hello({ text: 'World' });
 /*
   Output:
     <p>Hello</p>
