@@ -5,7 +5,7 @@ Seamless integration between Rollup and PostHTML.
 ## Install
 
 ```bash
-$ npm i rollup-plugin-posthtml -D
+$ npm i rollup-plugin-posthtml-template -D
 ```
 
 ## Usage
