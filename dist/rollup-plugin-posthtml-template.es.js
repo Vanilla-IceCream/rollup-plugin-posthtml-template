@@ -1,16 +1,12 @@
-'use strict';
-
-function _interopDefault (ex) { return (ex && (typeof ex === 'object') && 'default' in ex) ? ex['default'] : ex; }
-
-var rollupPluginutils = require('rollup-pluginutils');
-var posthtml = _interopDefault(require('posthtml'));
+import { createFilter } from 'rollup-pluginutils';
+import posthtml from 'posthtml';
 
 var index = function(options) {
   if ( options === void 0 ) options = {};
 
   if (!options.include) { options.include = '**/*.{html,sml}'; }
 
-  var filter = rollupPluginutils.createFilter(options.include, options.exclude);
+  var filter = createFilter(options.include, options.exclude);
 
   return {
     name: 'posthtml',
@@ -29,5 +25,5 @@ var index = function(options) {
   };
 };
 
-module.exports = index;
-//# sourceMappingURL=rollup-plugin-posthtml.cjs.js.map
+export default index;
+//# sourceMappingURL=rollup-plugin-posthtml-template.es.js.map

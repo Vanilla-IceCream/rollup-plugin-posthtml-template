@@ -1,4 +1,4 @@
-# rollup-plugin-posthtml [![Build Status](https://travis-ci.org/Vanilla-IceCream/rollup-plugin-posthtml.svg?branch=master)](https://travis-ci.org/Vanilla-IceCream/rollup-plugin-posthtml)
+# rollup-plugin-posthtml-template [![Build Status](https://travis-ci.org/Vanilla-IceCream/rollup-plugin-posthtml-template.svg?branch=master)](https://travis-ci.org/Vanilla-IceCream/rollup-plugin-posthtml-template)
 
 Seamless integration between Rollup and PostHTML.
 
@@ -13,7 +13,7 @@ $ npm i rollup-plugin-posthtml-template -D
 ```js
 // rollup.config.js
 import { join } from 'path';
-import posthtml from 'rollup-plugin-posthtml';
+import posthtml from 'rollup-plugin-posthtml-template';
 
 export default {
   entry: join(__dirname, 'main.js'),
@@ -48,7 +48,7 @@ document.querySelector('#ex').innerHTML = hello;
 ```js
 // rollup.config.js
 import { join } from 'path';
-import posthtml from 'rollup-plugin-posthtml';
+import posthtml from 'rollup-plugin-posthtml-template';
 import include from 'posthtml-include';
 
 export default {
@@ -91,7 +91,7 @@ document.querySelector('#ex').innerHTML = hello;
 ```js
 // rollup.config.js
 import { join } from 'path';
-import posthtml from 'rollup-plugin-posthtml';
+import posthtml from 'rollup-plugin-posthtml-template';
 
 export default {
   entry: join(__dirname, 'main.js'),
@@ -123,13 +123,12 @@ document.querySelector('#ex').innerHTML = hello({ text: 'World' });
 */
 ```
 
-
 ### parser
 
 ```js
 // rollup.config.js
 import { join } from 'path';
-import posthtml from 'rollup-plugin-posthtml';
+import posthtml from 'rollup-plugin-posthtml-template';
 import sugarml from 'posthtml-sugarml';
 
 export default {
