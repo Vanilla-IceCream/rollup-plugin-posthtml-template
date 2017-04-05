@@ -4,21 +4,21 @@
 var foo = (_) => `<p>Foo</p>
 <p>Bar</p>
 
-<p>${ _.luv }</p>
+<p>${ _.baz }</p>
 `;
 
 /**
  * @name html-example
  */
 
-document.querySelector('#example').innerHTML = foo({ luv: 'Love' });
+document.querySelector('#example').innerHTML = foo({ baz: 'Baz' });
 
 /**
- * @name sml-example
+ * @name sgr-example
  */
 
-// import foo from './foo.sml';
+// import foo from './foo.sgr';
 
-// document.querySelector('#example').innerHTML = foo({ luv: 'Love' });
+// document.querySelector('#example').innerHTML = foo({ baz: 'Baz' });
 
 }());

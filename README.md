@@ -143,8 +143,8 @@ export default {
 };
 ```
 
-```sml
-// hello.sml
+```sgr
+// hello.sgr
 p Hello
 p
   | World
@@ -152,7 +152,7 @@ p
 
 ```js
 // main.js
-import hello from './hello.sml';
+import hello from './hello.sgr';
 
 document.querySelector('#ex').innerHTML = hello;
 /*

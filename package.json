@@ -1,6 +1,6 @@
 {
   "name": "rollup-plugin-posthtml-template",
-  "version": "1.0.0",
+  "version": "1.1.0",
   "description": "Seamless integration between Rollup and PostHTML.",
   "main": "dist/rollup-plugin-posthtml-template.cjs.js",
   "module": "dist/rollup-plugin-posthtml-template.es.js",

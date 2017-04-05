@@ -8,7 +8,7 @@ var posthtml = _interopDefault(require('posthtml'));
 var index = function(options) {
   if ( options === void 0 ) options = {};
 
-  if (!options.include) { options.include = '**/*.{html,sml}'; }
+  if (!options.include) { options.include = '**/*.{html,sgr}'; }
 
   var filter = rollupPluginutils.createFilter(options.include, options.exclude);
 

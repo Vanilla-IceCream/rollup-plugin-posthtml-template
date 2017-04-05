@@ -4,7 +4,7 @@ import posthtml from 'posthtml';
 var index = function(options) {
   if ( options === void 0 ) options = {};
 
-  if (!options.include) { options.include = '**/*.{html,sml}'; }
+  if (!options.include) { options.include = '**/*.{html,sgr}'; }
 
   var filter = createFilter(options.include, options.exclude);
 

@@ -1,3 +1,3 @@
-import foo from './foo.sml';
+import foo from './foo.sgr';
 
 export default foo;
