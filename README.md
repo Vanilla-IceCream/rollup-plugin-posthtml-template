@@ -123,6 +123,65 @@ document.querySelector('#ex').innerHTML = hello({ text: 'World' });
 */
 ```
 
+TODO: Lodash template
+
+```html
+<!-- hello.html -->
+<p>Hello</p>
+<p><%= text %></p>
+
+<!-- or -->
+
+<p>Hello</p>
+<p>${ text }</p>
+```
+
+```js
+// main.js
+import hello from './hello.html';
+
+document.querySelector('#ex').innerHTML = hello({ text: 'World' });
+/*
+  Output:
+    <p>Hello</p>
+    <p>World</p>
+*/
+```
+
+TODO: JS.Next syntax (`rollup-plugin-buble`)
+
+```html
+<!-- iterator.html -->
+<ul>
+  <% [].forEach.call(list, item => { %>
+    <li><%- item %></li>
+  <% }); %>
+</ul>
+
+<!-- or -->
+
+<ul>
+  <% for (let item of list) { %>
+    <li><%- item %></li>
+  <% } %>
+</ul>
+```
+
+```js
+// main.js
+import iterator from './iterator.html';
+
+document.querySelector('#ex').innerHTML = iterator({ list: ['foo', 'bar', 'baz'] });
+/*
+  Output:
+    <ul>
+      <li>foo</li>
+      <li>bar</li>
+      <li>baz</li>
+    </ul>
+*/
+```
+
 ### parser
 
 ```js
@@ -161,3 +220,5 @@ document.querySelector('#ex').innerHTML = hello;
     <p>World</p>
 */
 ```
+
+Don't forget to install `atom-sugarml`. (If you are using the Atom editor)
