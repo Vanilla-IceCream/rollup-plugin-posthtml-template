@@ -15,7 +15,7 @@ export default function(options = {}) {
       return posthtml(options.plugins || [])
         .process(code, { parser: options.parser })
         .then(result => {
-          // const _template = template(code, templateOptions);
+          // const compiled = template({result.html, templateOptions);
           return {
             code: options.template ? `export default (_) => \`${result.html}\`` : `export default ${JSON.stringify(result.html)}`,
             map: { mappings: '' }

@@ -126,32 +126,9 @@ document.querySelector('#ex').innerHTML = hello({ text: 'World' });
 TODO: Lodash template
 
 ```html
-<!-- hello.html -->
-<p>Hello</p>
+<!-- template.html -->
 <p><%= text %></p>
 
-<!-- or -->
-
-<p>Hello</p>
-<p>${ text }</p>
-```
-
-```js
-// main.js
-import hello from './hello.html';
-
-document.querySelector('#ex').innerHTML = hello({ text: 'World' });
-/*
-  Output:
-    <p>Hello</p>
-    <p>World</p>
-*/
-```
-
-TODO: JS.Next syntax (`rollup-plugin-buble`)
-
-```html
-<!-- iterator.html -->
 <ul>
   <% [].forEach.call(list, item => { %>
     <li><%- item %></li>
@@ -159,6 +136,8 @@ TODO: JS.Next syntax (`rollup-plugin-buble`)
 </ul>
 
 <!-- or -->
+
+<p>${ text }</p>
 
 <ul>
   <% for (let item of list) { %>
@@ -169,11 +148,17 @@ TODO: JS.Next syntax (`rollup-plugin-buble`)
 
 ```js
 // main.js
-import iterator from './iterator.html';
+import template from './template.html';
 
-document.querySelector('#ex').innerHTML = iterator({ list: ['foo', 'bar', 'baz'] });
+document.querySelector('#ex').innerHTML = template({
+  text: 'Lodash',
+  list: ['foo', 'bar', 'baz']
+});
 /*
   Output:
+    <p>Hello</p>
+    <p>World</p>
+
     <ul>
       <li>foo</li>
       <li>bar</li>
