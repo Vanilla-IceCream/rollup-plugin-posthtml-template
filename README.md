@@ -151,19 +151,55 @@ TODO: Lodash template
 import template from './template.html';
 
 document.querySelector('#ex').innerHTML = template({
-  text: 'Lodash',
+  text: 'rollup-plugin-posthtml-template',
   list: ['foo', 'bar', 'baz']
 });
 /*
   Output:
-    <p>Hello</p>
-    <p>World</p>
+    <p>rollup-plugin-posthtml-template</p>
 
     <ul>
       <li>foo</li>
       <li>bar</li>
       <li>baz</li>
     </ul>
+*/
+```
+
+TODO: CSS modules
+
+```html
+<!-- template.html -->
+<p class="${ style.text }">
+  ${ text }
+</p>
+```
+
+```scss
+// style.css
+.text {
+  color: #F44336;
+}
+```
+
+```js
+import template from './template.html';
+import style from './style.css';
+
+// template(data={}, [imports={}])
+
+document.querySelector('#ex').innerHTML = template(
+  {
+    text: 'rollup-plugin-posthtml-template'
+  }, {
+    style
+  }
+);
+/*
+  Output:
+    <p class="_text_3zyde4l1yATCOkgn-DBWEL">
+      rollup-plugin-posthtml-template
+    </p>
 */
 ```
 
