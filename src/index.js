@@ -1,6 +1,6 @@
 import { createFilter } from 'rollup-pluginutils';
 import posthtml from 'posthtml';
-// import { template } from 'lodash';
+import { template } from 'lodash';
 
 export default function(options = {}) {
   if (!options.include) options.include = '**/*.{html,sgr}';
@@ -15,9 +15,10 @@ export default function(options = {}) {
       return posthtml(options.plugins || [])
         .process(code, { parser: options.parser })
         .then(result => {
-          // const compiled = template({result.html, templateOptions);
+          const compiled = template(result.html, { variable: 'data' });
+
           return {
-            code: options.template ? `export default (_) => \`${result.html}\`` : `export default ${JSON.stringify(result.html)}`,
+            code: options.template ? `export default ${compiled}` : `export default ${JSON.stringify(result.html)}`,
             map: { mappings: '' }
           };
         });
