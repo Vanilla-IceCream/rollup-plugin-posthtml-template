@@ -168,6 +168,10 @@ document.querySelector('#ex').innerHTML = template({
 
 TODO: CSS modules
 
+Related:
+* [`rollup-plugin-postcss`](https://github.com/egoist/rollup-plugin-postcss)
+* [`rollup-plugin-json`](https://github.com/rollup/rollup-plugin-json)
+
 ```html
 <!-- template.html -->
 <p class="${ style.text }">
@@ -183,18 +187,18 @@ TODO: CSS modules
 ```
 
 ```js
+// data.json
+{
+  "text": "rollup-plugin-posthtml-template"
+}
+```
+
+```js
 import template from './template.html';
 import style from './style.css';
+import data from './data.json';
 
-// template(data={}, [imports={}])
-
-document.querySelector('#ex').innerHTML = template(
-  {
-    text: 'rollup-plugin-posthtml-template'
-  }, {
-    style
-  }
-);
+document.querySelector('#ex').innerHTML = template(data, { style });  // template([data={}], [imports={}])
 /*
   Output:
     <p class="_text_3zyde4l1yATCOkgn-DBWEL">
