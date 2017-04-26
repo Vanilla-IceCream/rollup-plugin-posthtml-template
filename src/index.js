@@ -15,10 +15,12 @@ export default function(options = {}) {
       return posthtml(options.plugins || [])
         .process(code, { parser: options.parser })
         .then(result => {
-          const compiled = template(result.html, { variable: 'data' });
+          const compiled = (imports = {}) => template(result.html, { imports });
 
           return {
-            code: options.template ? `export default ${compiled}` : `export default ${JSON.stringify(result.html)}`,
+            code: options.template
+              ? `export default (data, imports) => \`${compiled(imports)(data)}\``
+              : `export default ${JSON.stringify(result.html)}`,
             map: { mappings: '' }
           };
         });
