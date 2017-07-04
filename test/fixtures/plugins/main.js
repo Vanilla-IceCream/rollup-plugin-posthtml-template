@@ -1,3 +1,3 @@
-import bar from './bar.html';
+import foo from './foo.html';
 
-export default bar;
+export default foo;

@@ -1,6 +1,5 @@
 import { join } from 'path';
 import { rollup } from 'rollup';
-import { expect } from 'chai';
 
 import posthtml from '../';
 
@@ -16,7 +15,8 @@ describe('rollup-plugin-posthtml', () => {
     return bundler('fixtures/basic/main.js')
       .then(result => {
         const { code } = result.generate({ format: 'iife', moduleName: 'posthtml' });
-        expect(code).to.be.ok;
+        expect(code).toBeDefined();
+        expect(code).toMatch(/<p>Foo<\/p>/);
     });
   });
 
@@ -24,7 +24,8 @@ describe('rollup-plugin-posthtml', () => {
     return bundler('fixtures/basic/main.js')
       .then(result => {
         const { map } = result.generate({ format: 'es', sourceMap: true });
-        expect(map).to.be.ok;
+        expect(map).toBeDefined();
+        expect(map.file).toBe(null);
     });
   });
 
@@ -32,7 +33,9 @@ describe('rollup-plugin-posthtml', () => {
     return bundler('fixtures/plugins/main.js', { plugins: [include()] })
       .then(result => {
         const { code } = result.generate({ format: 'iife', moduleName: 'posthtml' });
-        expect(code).to.be.ok;
+        expect(code).toBeDefined();
+        expect(code).toMatch(/<p>Foo<\/p>/);
+        // expect(code).toMatch(/<p>Bar<\/p>/);
     });
   });
 
@@ -40,7 +43,8 @@ describe('rollup-plugin-posthtml', () => {
     return bundler('fixtures/template/main.js', { template: true })
       .then(result => {
         const { code } = result.generate({ format: 'iife', moduleName: 'posthtml' });
-        expect(code).to.be.ok;
+        expect(code).toBeDefined();
+        expect(code).toMatch(/<p>\${ _.text }<\/p>/);
     });
   });
 
@@ -48,7 +52,8 @@ describe('rollup-plugin-posthtml', () => {
     return bundler('fixtures/parser/main.js', { parser: sugarml() })
       .then(result => {
         const { code } = result.generate({ format: 'iife', moduleName: 'posthtml' });
-        expect(code).to.be.ok;
+        expect(code).toBeDefined();
+        expect(code).toMatch(/<p>Foo<\/p>/);
     });
   });
 });
