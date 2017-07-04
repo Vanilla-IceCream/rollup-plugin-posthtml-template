@@ -1,15 +1,13 @@
-os: linux
-dist: trusty
-sudo: required
-
 language: node_js
 node_js: stable
-cache: yarn
 
-branches:
-  only: master
+cache:
+  yarn: true
+  directories: node_modules
 
-script: npm test
+script: yarn test
+
+after_success: yarn run coverage
 
 notifications:
   email:

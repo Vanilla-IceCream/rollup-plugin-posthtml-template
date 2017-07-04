@@ -1,4 +1,4 @@
-# rollup-plugin-posthtml-template [![Build Status](https://travis-ci.org/Vanilla-IceCream/rollup-plugin-posthtml-template.svg?branch=master)](https://travis-ci.org/Vanilla-IceCream/rollup-plugin-posthtml-template)
+# rollup-plugin-posthtml-template [![Build Status](https://travis-ci.org/Vanilla-IceCream/rollup-plugin-posthtml-template.svg?branch=master)](https://travis-ci.org/Vanilla-IceCream/rollup-plugin-posthtml-template) [![Coverage Status](https://coveralls.io/repos/github/Vanilla-IceCream/rollup-plugin-posthtml-template/badge.svg?branch=master)](https://coveralls.io/github/Vanilla-IceCream/rollup-plugin-posthtml-template?branch=master)
 
 Seamless integration between Rollup and PostHTML.
 

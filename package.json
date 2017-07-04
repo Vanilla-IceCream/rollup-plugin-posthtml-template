@@ -6,6 +6,7 @@
   "module": "dist/rollup-plugin-posthtml-template.es.js",
   "scripts": {
     "test": "jest --coverage",
+    "coverage": "cat ./coverage/lcov.info | coveralls",
     "build": "rollup -c",
     "example": "cd example && rollup -c && lite-server"
   },
@@ -29,13 +30,14 @@
   },
   "devDependencies": {
     "babel-jest": "^20.0.3",
-    "babel-preset-latest": "^6.24.0",
+    "babel-preset-latest": "^6.24.1",
+    "coveralls": "^2.13.1",
     "jest": "^20.0.4",
     "lite-server": "^2.3.0",
     "posthtml-include": "^1.1.0",
     "posthtml-sugarml": "^1.0.0-alpha3",
     "regenerator-runtime": "^0.10.5",
-    "rollup": "^0.41.6",
+    "rollup": "^0.43.0",
     "rollup-plugin-buble": "^0.15.0"
   },
   "jest": {
