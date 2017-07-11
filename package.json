@@ -6,7 +6,7 @@
   "module": "dist/rollup-plugin-posthtml-template.es.js",
   "scripts": {
     "test": "jest --coverage",
-    "coverage": "cat ./coverage/lcov.info | coveralls",
+    "coverage": "cat ./test/coverage/lcov.info | coveralls",
     "build": "rollup -c",
     "example": "cd example && rollup -c && lite-server"
   },
