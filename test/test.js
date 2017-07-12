@@ -25,7 +25,7 @@ describe('rollup-plugin-posthtml', () => {
       .then(result => {
         const { map } = result.generate({ format: 'es', sourceMap: true });
         expect(map).toBeDefined();
-        expect(map.file).toBe(null);
+        expect(map.file).toBeNull();
     });
   });
 
@@ -35,7 +35,7 @@ describe('rollup-plugin-posthtml', () => {
         const { code } = result.generate({ format: 'iife', moduleName: 'posthtml' });
         expect(code).toBeDefined();
         expect(code).toMatch(/<p>Foo<\/p>/);
-        // expect(code).toMatch(/<p>Bar<\/p>/);
+        expect(code).toMatch(/<p>Bar<\/p>/);
     });
   });
 
