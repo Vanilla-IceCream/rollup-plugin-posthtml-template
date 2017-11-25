@@ -12,7 +12,10 @@ export default function(options = {}) {
       if (!filter(id)) return;
 
       return posthtml(options.plugins || [])
-        .process(code, { parser: options.parser })
+        .process(code, {
+          parser: options.parser,
+          directives: options.directives
+        })
         .then(result => {
           return {
             code: options.template ? `export default (_) => \`${result.html}\`` : `export default ${JSON.stringify(result.html)}`,

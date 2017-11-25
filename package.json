@@ -1,6 +1,6 @@
 {
   "name": "rollup-plugin-posthtml-template",
-  "version": "1.1.0",
+  "version": "1.2.0",
   "description": "Seamless integration between Rollup and PostHTML.",
   "main": "dist/rollup-plugin-posthtml-template.cjs.js",
   "module": "dist/rollup-plugin-posthtml-template.es.js",
@@ -25,20 +25,21 @@
   },
   "homepage": "https://github.com/Vanilla-IceCream/rollup-plugin-posthtml-template#readme",
   "dependencies": {
-    "posthtml": "^0.9.2",
+    "posthtml": "^0.10.1",
     "rollup-pluginutils": "^2.0.1"
   },
   "devDependencies": {
-    "babel-jest": "^20.0.3",
+    "babel-jest": "^21.2.0",
     "babel-preset-latest": "^6.24.1",
-    "coveralls": "^2.13.1",
-    "jest": "^20.0.4",
+    "coveralls": "^3.0.0",
+    "jest": "^21.2.1",
     "lite-server": "^2.3.0",
+    "lodash": "^4.17.4",
     "posthtml-include": "^1.1.0",
     "posthtml-sugarml": "^1.0.0-alpha3",
-    "regenerator-runtime": "^0.10.5",
-    "rollup": "^0.43.0",
-    "rollup-plugin-buble": "^0.15.0"
+    "regenerator-runtime": "^0.11.0",
+    "rollup": "^0.51.8",
+    "rollup-plugin-buble": "^0.18.0"
   },
   "jest": {
     "transform": {
