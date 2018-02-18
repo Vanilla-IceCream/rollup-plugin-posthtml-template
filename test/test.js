@@ -1,7 +1,7 @@
 import { join } from 'path';
 import { rollup } from 'rollup';
 
-import posthtml from '../';
+import posthtml from '../src';
 
 import sugarml from 'posthtml-sugarml';
 import include from 'posthtml-include';
@@ -24,7 +24,7 @@ describe('rollup-plugin-posthtml', () => {
     const { map } = await generate({ format: 'es', sourcemap: true });
 
     expect(map).toBeDefined();
-    expect(map.file).toBeNull();
+    expect(map.file).toBe('main.js');
   });
 
   it('should be able to use the plugins option', async () => {
@@ -51,4 +51,11 @@ describe('rollup-plugin-posthtml', () => {
     expect(code).toBeDefined();
     expect(code).toMatch(/<p>Foo<\/p>/);
   });
+
+  // it('should be able to use the directives option', async () => {
+  //   const { generate } = await bundler('fixtures/directives/main.js', { directives: '' });
+  //   const { code } = await generate({ format: 'iife', name: 'posthtml' });
+  //
+  //   expect(code).toBeDefined();
+  // });
 });
